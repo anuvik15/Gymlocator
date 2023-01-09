@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <title>Gym</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins",sans-serif;
+        box-sizing: border-box;
+    }
+    body{
+
+        background: url('PIC.jpg');
+
+    }
+    h1 {
+        display: flex;
+        align-items: top;
+        justify-content: center;
+        min-height: 10vh;
+        background-color: #000;
+        font-style: revert;
+        
+
+
+    
+    }
+
+    h1 {
+        position: relative;
+        padding: 10px 30px;
+        margin: 45px 0;
+        color: #ff3f21;
+        text-decoration: none;
+        font-size: 60px;
+        text-transform: uppercase;
+        transition: 0.5s;
+    }
+
+    h1::before {
+        content: " ";
+        position: absolute;
+        top:-1px;
+        left: -1px;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #21ebff;
+        border-right: 2tpx solid #21ebff;
+        transition:0.5s;
+        transition-delay:0.5s;
+    }
+    h1::after{
+        content: " ";
+        position: absolute;
+        bottom:-1px;
+        right: -1px;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #21ebff;
+        border-right: 2tpx solid #21ebff;
+        transition:0.5s;
+        transition-delay:0.5s;
+
+    }
+    h1:hover::before,
+    h1:hover::after{
+        width:100%;
+        height:100%;
+        transition-delay: 0s;
+
+    }
+    h1:hover{
+        background:#21ebff;
+        color:#000;
+        box-shadow: 0 0 50px #21ebff;
+        transition-delay: 0.5s;
+    }
+    .mid {
+        display: block;
+        width: 36%;
+        margin: 29px auto;
+        /* border: 2px solid green; */
+    }
+
+    .right {
+        position: absolute;
+        right: 34px;
+        top: 160px;
+        display: inline-block;
+        /* border: 2px solid yellow; */
+    }
+
+    .navbar {
+        display: inline-block;
+        position: absolute;
+        left: 70px;
+        top: 160px;
+
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 25px;
+
+    }
+
+    .navbar li a {
+        font-family: 'Baloo Bhai', cursive;
+        margin: 0px 9px;
+        background-color: black;
+ 
+        padding: 4px 14px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        color: wheat;
+
+
+
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        text-decoration: none;
+        color: wheat;        
+        background-color: rgb(31, 30, 30);
+
+    }
+
+    .btn {
+        font-family: 'Baloo Bhai', cursive;
+        margin: 0px 9px;
+        background-color: black;
+        color: wheat;
+        padding: 4px 14px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: rgb(31, 30, 30);
+    }
+
+
+    .container {
+        border: 2px solid wheat;
+        margin: 90px 80px;
+        padding: 75px;
+        width: 33%;
+        border-radius: 28px;
+    }
+    .form-group input {
+        font-family: 'Baloo Bhai', cursive;
+        text-align: center;
+        display: block;
+        width: 408px;
+        padding: 1px;
+        border: 2px solid black;
+        margin: 11px auto;
+        font-size: 25px;
+        border-radius: 8px;
+    }
+
+    .container h2 {
+        text-align: center;
+        font-style: normal;
+        position: relative;
+        padding: 10px 30px;
+        margin: 0px 0;
+        color: rgba(227, 95, 18, 0.77);
+        text-decoration: none;
+        font-size: 20px;
+        text-transform: uppercase;
+        border: 2px solid wheat;
+        background-color: #000;
+
+    }
+
+    .container button {
+        display: block;
+        width: 84%;
+        margin: 20px auto;
+    }
+    .card{
+        width: 500px;
+        height: 200px;
+        background-color: #333;
+        border-radius: 10px;
+        outline: 1px solid;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
+        position: relative;
+        overflow: hidden;
+        position: absolute;
+        right: 20px;
+        top: 252px;
+   
+    }
+    .card-image{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        opacity: .6;
+        transition: transform .75s;
+        display: inline-block;
+
+    }
+    .card:hover .card-image{
+        transform: scale(1.15);
+    }
+    .card-title{
+        position:absolute;
+        left:15px;
+        bottom: 15px;
+        font-size: 20px;
+        text-shadow: 0 0 1px rgba(0, 0, 0, .5);
+    }
+    .aerob{
+
+        position: relative;
+        overflow: hidden;
+        position: absolute;
+        right: 10px;
+        top: 411px;
+        font-family: 'Baloo Bhai', cursive;
+        margin: 0px 9px;
+        background-color: orange;
+        padding: 4px 14px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        color: wheat;
+
+
+    }
+    .card2{
+        width: 500px;
+        height: 200px;
+        background-color: #333;
+        border-radius: 10px;
+        outline: 1px solid;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
+        position: relative;
+        overflow: hidden;
+        position: absolute;
+        right: 20px;
+        top: 500px;
+   
+    }
+    .card2-image{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        opacity: .6;
+        transition: transform .75s;
+        display: inline-block;
+
+    }
+    .card2:hover .card2-image{
+        transform: scale(1.15);
+    }
+    .card2-title{
+        position:absolute;
+        left:15px;
+        bottom: 15px;
+        font-size: 20px;
+        text-shadow: 0 0 1px rgba(0, 0, 0, .5);
+    }
+    .zumba{
+
+        position: relative;
+        overflow: hidden;
+        position: absolute;
+        right: 10px;
+        top: 661px;
+        font-family: 'Baloo Bhai', cursive;
+        margin: 0px 9px;
+        background-color: orange;
+        padding: 4px 14px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        color: wheat;
+
+
+    }
+    .card3{
+        width: 500px;
+        height: 200px;
+        background-color: #333;
+        border-radius: 10px;
+        outline: 1px solid;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
+        position: relative;
+        overflow: hidden;
+        position: absolute;
+        right: 20px;
+        top: 760px;
+   
+    }
+    .card3-image{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        opacity: .6;
+        transition: transform .75s;
+        display: inline-block;
+
+    }
+    .card3:hover .card3-image{
+        transform: scale(1.15);
+    }
+    .card3-title{
+        position:absolute;
+        left:15px;
+        bottom: 15px;
+        font-size: 20px;
+        text-shadow: 0 0 1px rgba(0, 0, 0, .5);
+    }
+    .yoga{
+
+        position: relative;
+        overflow: hidden;
+        position: absolute;
+        right: 10px;
+        top: 920px;
+        font-family: 'Baloo Bhai', cursive;
+        margin: 0px 9px;
+        background-color: orange;
+        padding: 4px 14px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        color: wheat;
+
+
+    }
+    .logo {
+        display: flex;
+
+
+    }
+
+    .link {
+        text-decoration: none;
+        color: #b7b7b7;
+        margin: 10px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(28, 28, 28);
+        border-radius: 10px;
+        position: relative;
+        transition: 0.4s;
+        
+
+    }
+
+    .link:hover {
+        transform: rotate(45deg);
+    }
+
+    .link::before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background: #373737;
+        border-radius: 10px;
+        transition: opasity 0.2s;
+    }
+
+    .link:hover::before {
+        opacity: 0.4;
+    }
+
+    .link:nth-child(1)::before {
+        background: #c32aa3;
+   
+    }
+
+    .link:nth-child(2)::before {
+        background: #1da1f2;
+    }
+
+    .link:nth-child(3)::before {
+        background: #25d366;
+    }
+
+    .link:nth-child(4)::before {
+        background: #0a66c2;
+    }
+
+    .link:hover::before {
+        transform: translate(-4px, -4px);
+        filter: blur(10px);
+    }
+
+    .link i {
+        font-size: 1.7em;
+        transition: all 0.4s;
+    }
+
+    .link:hover i {
+        color: #c8c8c8;
+        transform: rotate(-45deg);
+    }
+
+    .link:hover i.instagram {
+        color: #c32aa3;
+   
+    }
+
+    .link:hover i.twitter {
+        color: #1da1f2;
+
+    }
+
+    .link:hover i.whatsapp {
+        color: #25d366;
+  
+    }
+</style>
+<body>
+    <h1>Anurag's GYM LOCATOR</h1>
+    <header class="header">
+
+        <!-- Mid box for navbar -->
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Fitness Calculator</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Right box for buttons -->
+        <div class="right">
+            <button class="btn">Call Us Now</button>
+            <button class="btn">Email Us</button>
+        </div>
+    </header>
+    <div class="container">
+        <h2><b>Join the best gym of Delhi now</b></h2>
+ 
+        <form action="noaction.php">
+            <div class="form-group">
+                <input type="text" name="" placeholder="Enter your Name">
+            </div>
+            <div class="form-group">
+                <input type="text" name="" placeholder="Enter your Age">
+            </div>
+            <div class="form-group">
+                <input type="text" name="" placeholder="Enter your Gender">
+            </div>
+            <div class="form-group">
+                <input type="text" name="" placeholder="Enter your Locality">
+            </div>
+            <div class="form-group">
+                <input type="text" name="" placeholder="Enter your Email Id">
+            </div>
+            <div class="form-group">
+                <input type="text" name="" placeholder="Enter your Phone Number">
+            </div>
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+    <div class="card">
+        <img src="aero.jpg"alt="Aerobics Image" class="card-image" >
+
+    </div>
+    <span class="aerob">
+        <p>Aerobics Classes</p>
+    </span>
+    <div class="card2">
+        <img src="zumb.jpg"alt="Zumba Image" class="card2-image" >
+
+
+    </div>
+    <span class="zumba">
+        <p>Zumba Classes</p>
+    </span>
+    <div class="card3">
+        <img src="yoga.webp"alt="Yoga Image" class="card3-image" >
+
+
+    </div>
+    <span class="yoga">
+        <p>Yoga Classes</p>
+    </span>
+    <div class="logo">
+        <a href="#" class="link">
+            <i class="fab fa-instagram instagram"></i>
+        </a>
+        <a href="#" class="link">
+            <i class="fab fa-twitter twitter"></i>
+        </a>
+        <a href="#" class="link">
+            <i class="fab fa-whatsapp whatsapp"></i>
+        </a>
+    </div>
+
+
+
+    
+
+
+    
+</body>
+</html>
